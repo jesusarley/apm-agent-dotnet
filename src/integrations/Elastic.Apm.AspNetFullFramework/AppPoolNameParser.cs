@@ -22,7 +22,7 @@ namespace Elastic.Apm.AspNetFullFramework
 				if (!string.Equals(args[i], "-ap", StringComparison.OrdinalIgnoreCase))
 					continue;
 
-				var name = args[i + 1]?.Trim().Trim('"').Trim();
+				var name = args[i + 1]?.Trim();
 				return string.IsNullOrEmpty(name) ? null : name;
 			}
 

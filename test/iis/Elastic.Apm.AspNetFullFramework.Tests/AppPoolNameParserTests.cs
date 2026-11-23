@@ -29,12 +29,6 @@ namespace Elastic.Apm.AspNetFullFramework.Tests
 				.Be(".NET v4.5 Classic");
 
 		[Fact]
-		public void Removes_Surrounding_Quotes() =>
-			AppPoolNameParser.FromCommandLineArgs(new[] { "w3wp.exe", "-ap", "\"DefaultAppPool\"" })
-				.Should()
-				.Be("DefaultAppPool");
-
-		[Fact]
 		public void Argument_Name_Is_Case_Insensitive() =>
 			AppPoolNameParser.FromCommandLineArgs(new[] { "w3wp.exe", "-AP", "test001" })
 				.Should()
@@ -54,7 +48,7 @@ namespace Elastic.Apm.AspNetFullFramework.Tests
 
 		[Fact]
 		public void Returns_Null_When_Value_Is_Empty() =>
-			AppPoolNameParser.FromCommandLineArgs(new[] { "w3wp.exe", "-ap", "\"\"" })
+			AppPoolNameParser.FromCommandLineArgs(new[] { "w3wp.exe", "-ap", "" })
 				.Should()
 				.BeNull();
 
